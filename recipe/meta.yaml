@@ -1,5 +1,5 @@
 {% set name = "alchemlyb" %}
-{% set version = "0.7.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
-  sha256: 3f0a13d8d1608fd25747ac358ed62fae3bdaa14f846fe5e47c4591f29663e693
+  sha256: 1a18959223d31302a1a3da214b38dd3a7608204f43bb3721fdc6db870dc8139f
 
 build:
   noarch: python
@@ -17,13 +17,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.8
   run:
     - matplotlib-base
     - numpy
-    - pandas >=1.2,!=1.3.0
+    - pandas >=1.4
     - pymbar >=3.0.5,<4
-    - python >=3.6
+    - python >=3.8
     - scikit-learn
     - scipy
 
