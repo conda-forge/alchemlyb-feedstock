@@ -1,11 +1,11 @@
-About alchemlyb
-===============
+About alchemlyb-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/alchemlyb-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/alchemistry/alchemlyb
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/alchemlyb-feedstock/blob/main/LICENSE.txt)
 
 Summary: the simple alchemistry library
 
