@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -28,6 +28,15 @@ requirements:
     - python >=3.8
     - scikit-learn
     - scipy
+
+variants:
+  - name: jax
+    dependencies:
+      - pymbar
+
+  - name: core
+    dependencies:
+      - pymbar-core
 
 test:
   imports:
