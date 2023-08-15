@@ -24,7 +24,6 @@ requirements:
     - numpy
     - pandas >=1.4
     - pyarrow
-    - pymbar >=4
     - python >=3.8
     - scikit-learn
     - scipy
@@ -32,11 +31,11 @@ requirements:
 variants:
   - name: jax
     dependencies:
-      - pymbar
+      - pymbar >=4
 
   - name: core
     dependencies:
-      - pymbar-core
+      - pymbar-core >=4
 
 test:
   imports:
