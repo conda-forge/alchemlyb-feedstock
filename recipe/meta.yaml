@@ -4,6 +4,7 @@
 package:
   name: {{ name|lower }}
   version: {{ version }}
+  default_build: jax
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
@@ -12,7 +13,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -24,10 +25,18 @@ requirements:
     - numpy
     - pandas >=1.4
     - pyarrow
-    - pymbar >=4
     - python >=3.8
     - scikit-learn
     - scipy
+
+variants:
+  - name: jax
+    dependencies:
+      - pymbar >=4
+
+  - name: core
+    dependencies:
+      - pymbar-core >=4
 
 test:
   imports:
