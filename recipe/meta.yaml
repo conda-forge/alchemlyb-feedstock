@@ -4,6 +4,7 @@
 package:
   name: {{ name|lower }}
   version: {{ version }}
+  default_build: jax
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
