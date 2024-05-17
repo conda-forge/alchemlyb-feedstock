@@ -12,22 +12,32 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
-requirements:
-  host:
-    - pip
-    - python >=3.8
-  run:
-    - loguru
-    - matplotlib-base
-    - numpy
-    - pandas >=1.4
-    - pyarrow
-    - pymbar >=4
-    - python >=3.8
-    - scikit-learn
-    - scipy
+outputs:
+  - name: {{ name }}-core
+    requirements:
+      host:
+        - pip
+        - python >=3.8
+      run:
+        - loguru
+        - matplotlib-base
+        - numpy
+        - pandas >=1.4
+        - pyarrow
+        - pymbar-core >=4
+        - python >=3.8
+        - scikit-learn
+        - scipy
+
+  - name: {{ name }}
+    requirements:
+      host:
+        - python
+      run:
+        - {{ pin_subpackage('pymbar-core', exact=True) }}
+        - pymbar >=4
 
 test:
   imports:
