@@ -14,6 +14,14 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 1
 
+test:
+  imports:
+    - alchemlyb
+  commands:
+    - pip check
+  requires:
+    - pip
+
 outputs:
   - name: {{ name }}-core
     requirements:
@@ -38,14 +46,6 @@ outputs:
       run:
         - {{ pin_subpackage('pymbar-core', exact=True) }}
         - pymbar >=4
-
-test:
-  imports:
-    - alchemlyb
-  commands:
-    - pip check
-  requires:
-    - pip
 
 about:
   home: https://github.com/alchemistry/alchemlyb
