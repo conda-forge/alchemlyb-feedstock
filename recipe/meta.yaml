@@ -20,7 +20,7 @@ requirements:
     - python >=3.8
   run:
     - loguru
-    - matplotlib-base>=3.7
+    - matplotlib-base >=3.7
     - numpy
     - pandas >=1.4
     - pyarrow
