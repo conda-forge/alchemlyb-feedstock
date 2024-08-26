@@ -1,5 +1,5 @@
 {% set name = "alchemlyb" %}
-{% set version = "2.3.1" %}
+{% set version = "2.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
-  sha256: 8422acd48aaabe5ba6de015db4bc929cd166d8be194b22b9da8abfa99da68e39
+  sha256: 56e3dd1c7881937709f2c9c47ee6731495b144bbf29c5d23dff78c6cee372b1b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
