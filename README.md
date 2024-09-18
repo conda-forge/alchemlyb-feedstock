@@ -9,6 +9,27 @@ Package license: BSD-3-Clause
 
 Summary: the simple alchemistry library
 
+Development: https://github.com/alchemistry/alchemlyb
+
+Documentation: https://alchemlyb.readthedocs.io/
+
+alchemlyb is an open-source Python software package for
+the analysis of alchemical free energy calculations. Its
+functionality contains individual composable building
+blocks for all aspects of a full typical free energy
+analysis workflow, starting with the extraction of raw
+data from the output of diverse molecular simulation
+packages, moving on to data preprocessing tasks such as
+decorrelation of time series, using various estimators to
+derive free energy estimates from simulation samples, and
+finally providing quality analysis tools for data
+convergence checking and visualization. alchemlyb also
+contains high-level end-to-end workflows that combine
+multiple building blocks into a user-friendly analysis
+pipeline from the initial data input stage to the final
+results.
+
+
 Current build status
 ====================
 
