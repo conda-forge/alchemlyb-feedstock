@@ -166,4 +166,5 @@ Feedstock Maintainers
 
 * [@jan-janssen](https://github.com/jan-janssen/)
 * [@orbeckst](https://github.com/orbeckst/)
+* [@xiki-tempula](https://github.com/xiki-tempula/)
 
