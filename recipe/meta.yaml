@@ -1,5 +1,5 @@
 {% set name = "alchemlyb" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
-  sha256: b617da4bba714f14bcb2db727be981fd0fb60c250b523876dd902d1249ef8533
+  sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -42,21 +42,21 @@ about:
   home: https://github.com/alchemistry/alchemlyb
   summary: the simple alchemistry library
   description: |
-      alchemlyb is an open-source Python software package for
-      the analysis of alchemical free energy calculations. Its
-      functionality contains individual composable building
-      blocks for all aspects of a full typical free energy
-      analysis workflow, starting with the extraction of raw
-      data from the output of diverse molecular simulation
-      packages, moving on to data preprocessing tasks such as
-      decorrelation of time series, using various estimators to
-      derive free energy estimates from simulation samples, and
-      finally providing quality analysis tools for data
-      convergence checking and visualization. alchemlyb also
-      contains high-level end-to-end workflows that combine
-      multiple building blocks into a user-friendly analysis
-      pipeline from the initial data input stage to the final
-      results.
+    alchemlyb is an open-source Python software package for
+    the analysis of alchemical free energy calculations. Its
+    functionality contains individual composable building
+    blocks for all aspects of a full typical free energy
+    analysis workflow, starting with the extraction of raw
+    data from the output of diverse molecular simulation
+    packages, moving on to data preprocessing tasks such as
+    decorrelation of time series, using various estimators to
+    derive free energy estimates from simulation samples, and
+    finally providing quality analysis tools for data
+    convergence checking and visualization. alchemlyb also
+    contains high-level end-to-end workflows that combine
+    multiple building blocks into a user-friendly analysis
+    pipeline from the initial data input stage to the final
+    results.
   license: BSD-3-Clause
   license_file: LICENSE
   dev_url: https://github.com/alchemistry/alchemlyb
