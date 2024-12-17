@@ -1,24 +1,27 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.4.1" %}
+# set minimal Python version from 
+# https://github.com/alchemistry/alchemlyb/blob/master/pyproject.toml#L42
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
   sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
     - setuptools
-    - python >=3.10
+    - python {{ python_min }}
   run:
     - loguru
     - matplotlib-base >=3.7
@@ -26,7 +29,7 @@ requirements:
     - pandas >=2.1
     - pyarrow
     - pymbar >=4
-    - python >=3.10
+    - python >={{ python_min }}
     - scikit-learn
     - scipy
 
@@ -37,6 +40,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/alchemistry/alchemlyb
