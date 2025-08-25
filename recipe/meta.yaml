@@ -14,33 +14,47 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
-
-requirements:
-  host:
-    - pip
-    - setuptools
-    - python {{ python_min }}
-  run:
-    - loguru
-    - matplotlib-base >=3.7
-    - numpy
-    - pandas >=2.1
-    - pyarrow
-    - pymbar >=4
-    - python >={{ python_min }}
-    - scikit-learn
-    - scipy
+  number: 2
 
 test:
-  imports:
-    - alchemlyb
-  commands:
-    - pip check
   requires:
     - pip
     - python {{ python_min }}
+  commands:
+    - pip check
+
+outputs:
+  - name: {{ name }}-core
+    script: {{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - pip
+        - setuptools
+        - python {{ python_min }}
+      run:
+        - loguru
+        - matplotlib-base >=3.7
+        - numpy
+        - pandas >=2.1
+        - pyarrow
+        - pymbar-core >=4
+        - python >={{ python_min }}
+        - scikit-learn
+        - scipy
+    test:
+      imports:
+        - alchemlyb
+
+  - name: {{ name }}
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - {{ pin_subpackage("alchemlyb-core", exact=True) }}
+        - pymbar >=4
+    test:
+      imports:
+        - alchemlyb
 
 about:
   home: https://github.com/alchemistry/alchemlyb
