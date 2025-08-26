@@ -25,7 +25,7 @@ test:
 
 outputs:
   - name: {{ name }}-core
-    script: {{ PYTHON }} -m pip install . -vv
+    script: install.sh
     requirements:
       host:
         - pip
