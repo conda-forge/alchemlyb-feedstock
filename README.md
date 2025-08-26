@@ -34,11 +34,10 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16170&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/alchemlyb-feedstock?branchName=main">
-      </a>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
     </td>
   </tr>
 </table>
@@ -49,7 +48,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-alchemlyb-green.svg)](https://anaconda.org/conda-forge/alchemlyb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/alchemlyb.svg)](https://anaconda.org/conda-forge/alchemlyb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/alchemlyb.svg)](https://anaconda.org/conda-forge/alchemlyb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/alchemlyb.svg)](https://anaconda.org/conda-forge/alchemlyb) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-alchemlyb--core-green.svg)](https://anaconda.org/conda-forge/alchemlyb-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/alchemlyb-core.svg)](https://anaconda.org/conda-forge/alchemlyb-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/alchemlyb-core.svg)](https://anaconda.org/conda-forge/alchemlyb-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/alchemlyb-core.svg)](https://anaconda.org/conda-forge/alchemlyb-core) |
 
 Installing alchemlyb
 ====================
@@ -61,16 +59,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `alchemlyb, alchemlyb-core` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `alchemlyb` can be installed with `conda`:
 
 ```
-conda install alchemlyb alchemlyb-core
+conda install alchemlyb
 ```
 
 or with `mamba`:
 
 ```
-mamba install alchemlyb alchemlyb-core
+mamba install alchemlyb
 ```
 
 It is possible to list all of the versions of `alchemlyb` available on your platform with `conda`:
