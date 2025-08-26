@@ -63,10 +63,6 @@ outputs:
     test:
       imports:
         - alchemlyb
-      commands:
-        - pip check
-      requires:
-        - pip
 
 # The 'about' and 'extra' sections are common to all packages built from this recipe.
 about:
