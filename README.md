@@ -3,15 +3,15 @@ About alchemlyb-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/alchemlyb-feedstock/blob/main/LICENSE.txt)
 
+
+About alchemlyb
+---------------
+
 Home: https://github.com/alchemistry/alchemlyb
 
-Package license: BSD-3-Clause
+Package license: 
 
 Summary: the simple alchemistry library
-
-Development: https://github.com/alchemistry/alchemlyb
-
-Documentation: https://alchemlyb.readthedocs.io/
 
 alchemlyb is an open-source Python software package for
 the analysis of alchemical free energy calculations. Its
@@ -25,9 +25,54 @@ derive free energy estimates from simulation samples, and
 finally providing quality analysis tools for data
 convergence checking and visualization. alchemlyb also
 contains high-level end-to-end workflows that combine
-multiple building blocks into a user-friendly analysis
-pipeline from the initial data input stage to the final
-results.
+multiple
+
+About alchemlyb
+---------------
+
+Home: https://github.com/alchemistry/alchemlyb
+
+Package license: 
+
+Summary: the simple alchemistry library
+
+alchemlyb is an open-source Python software package for
+the analysis of alchemical free energy calculations. Its
+functionality contains individual composable building
+blocks for all aspects of a full typical free energy
+analysis workflow, starting with the extraction of raw
+data from the output of diverse molecular simulation
+packages, moving on to data preprocessing tasks such as
+decorrelation of time series, using various estimators to
+derive free energy estimates from simulation samples, and
+finally providing quality analysis tools for data
+convergence checking and visualization. alchemlyb also
+contains high-level end-to-end workflows that combine
+multiple
+
+
+About alchemlyb-core
+--------------------
+
+Home: https://github.com/alchemistry/alchemlyb
+
+Package license: 
+
+Summary: the simple alchemistry library
+
+alchemlyb is an open-source Python software package for
+the analysis of alchemical free energy calculations. Its
+functionality contains individual composable building
+blocks for all aspects of a full typical free energy
+analysis workflow, starting with the extraction of raw
+data from the output of diverse molecular simulation
+packages, moving on to data preprocessing tasks such as
+decorrelation of time series, using various estimators to
+derive free energy estimates from simulation samples, and
+finally providing quality analysis tools for data
+convergence checking and visualization. alchemlyb also
+contains high-level end-to-end workflows that combine
+multiple
 
 
 Current build status
@@ -165,7 +210,4 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@jan-janssen](https://github.com/jan-janssen/)
-* [@orbeckst](https://github.com/orbeckst/)
-* [@xiki-tempula](https://github.com/xiki-tempula/)
 
