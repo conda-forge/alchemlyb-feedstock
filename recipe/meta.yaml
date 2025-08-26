@@ -12,20 +12,18 @@ source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
   sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
-# A top-level build number is required by conda-forge.
 build:
   number: 0
 
 outputs:
   - name: {{ name }}-core
     build:
-      # Per-output noarch setting
       noarch: python
     requirements:
       host:
         - pip
-        # Corrected Jinja syntax and spacing
-        - python >={{ python_min }}
+        # Pin to the specific minimum Python version for the build environment
+        - python {{ python_min }}
         - setuptools
       run:
         - loguru
@@ -34,7 +32,7 @@ outputs:
         - pandas >=2.1
         - pyarrow
         - pymbar-core >=4
-        # Corrected Jinja syntax and spacing
+        # The run requirement correctly allows for any newer Python version
         - python >={{ python_min }}
         - scikit-learn
         - scipy
@@ -44,20 +42,20 @@ outputs:
 
   - name: {{ name }}
     build:
-      # Per-output noarch setting
       noarch: python
     requirements:
       host:
-        # Corrected Jinja syntax and spacing
-        - python >={{ python_min }}
+        # Pin to the specific minimum Python version
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage("alchemlyb-core", exact=True) }}
         - pymbar >=4
-        # Corrected Jinja syntax and spacing
         - python >={{ python_min }}
     test:
       requires:
         - pip
+        # Pin to the specific minimum Python version for the test environment
+        - python {{ python_min }}
       imports:
         - alchemlyb
       commands:
@@ -79,16 +77,4 @@ about:
     finally providing quality analysis tools for data
     convergence checking and visualization. alchemlyb also
     contains high-level end-to-end workflows that combine
-    multiple building blocks into a user-friendly analysis
-    pipeline from the initial data input stage to the final
-    results.
-  license: BSD-3-Clause
-  license_file: LICENSE
-  dev_url: https://github.com/alchemistry/alchemlyb
-  doc_url: https://alchemlyb.readthedocs.io/
-
-extra:
-  recipe-maintainers:
-    - xiki-tempula
-    - orbeckst
-    - jan-janssen
+    multiple
