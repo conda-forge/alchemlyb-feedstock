@@ -15,6 +15,7 @@ build:
 
 outputs:
   - name: {{ name }}-core
+    script: install.sh
     build:
       noarch: python
     requirements:
