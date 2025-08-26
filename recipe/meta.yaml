@@ -1,6 +1,6 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.4.1" %}
-# set minimal Python version from 
+# set minimal Python version from
 # https://github.com/alchemistry/alchemlyb/blob/master/pyproject.toml#L42
 {% set python_min = "3.10" %}
 
@@ -12,25 +12,19 @@ source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
   sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
-build:
-  noarch: python
-  number: 2
-
-test:
-  requires:
-    - pip
-    - python {{ python_min }}
-  commands:
-    - pip check
+# The top-level `build` section is removed.
 
 outputs:
   - name: {{ name }}-core
-    script: install.sh
+    # This build section applies ONLY to the alchemlyb-core package.
+    build:
+      noarch: python
+      number: 0
     requirements:
       host:
         - pip
+        - python >= {{ python_min }}
         - setuptools
-        - python {{ python_min }}
       run:
         - loguru
         - matplotlib-base >=3.7
@@ -38,7 +32,7 @@ outputs:
         - pandas >=2.1
         - pyarrow
         - pymbar-core >=4
-        - python >={{ python_min }}
+        - python >= {{ python_min }}
         - scikit-learn
         - scipy
     test:
@@ -46,15 +40,25 @@ outputs:
         - alchemlyb
 
   - name: {{ name }}
+    # This build section applies ONLY to the alchemlyb metapackage.
+    build:
+      noarch: python
+      number: 0
     requirements:
       host:
-        - python {{ python_min }}
+        - python >= {{ python_min }}
       run:
         - {{ pin_subpackage("alchemlyb-core", exact=True) }}
         - pymbar >=4
+        - python >= {{ python_min }}
     test:
+      # These tests run on the final, complete package.
+      requires:
+        - pip
       imports:
         - alchemlyb
+      commands:
+        - pip check
 
 about:
   home: https://github.com/alchemistry/alchemlyb
