@@ -1,7 +1,5 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.4.1" %}
-# set minimal Python version from
-# https://github.com/alchemistry/alchemlyb/blob/master/pyproject.toml#L42
 {% set python_min = "3.10" %}
 
 package:
@@ -22,7 +20,7 @@ outputs:
     requirements:
       host:
         - pip
-        # Pin to the specific minimum Python version for the build environment
+        # Use an exact pin for the build environment
         - python {{ python_min }}
         - setuptools
       run:
@@ -32,7 +30,7 @@ outputs:
         - pandas >=2.1
         - pyarrow
         - pymbar-core >=4
-        # The run requirement correctly allows for any newer Python version
+        # Use a lower-bound for the run environment
         - python >={{ python_min }}
         - scikit-learn
         - scipy
@@ -45,16 +43,17 @@ outputs:
       noarch: python
     requirements:
       host:
-        # Pin to the specific minimum Python version
+        # Use an exact pin for the build environment
         - python {{ python_min }}
       run:
         - {{ pin_subpackage("alchemlyb-core", exact=True) }}
         - pymbar >=4
+        # Use a lower-bound for the run environment
         - python >={{ python_min }}
     test:
       requires:
         - pip
-        # Pin to the specific minimum Python version for the test environment
+        # Use an exact pin for the test environment
         - python {{ python_min }}
       imports:
         - alchemlyb
