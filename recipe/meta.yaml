@@ -1,66 +1,74 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.4.1" %}
-{% set python_min = "3.10" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
   sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
+# We skip the top-level build because the actual build commands are defined in the 'outputs'.
+# This prevents conda-build from creating a top-level package with no content.
 build:
-  number: 0
+  number: 1
+  skip: true
 
 outputs:
   - name: {{ name }}-core
-    script: install.sh
+    # This is the core package that contains all the code.
+    # The build script is run here to install the Python library.
+    script: {{ PYTHON }} -m pip install . -vv
     build:
       noarch: python
+
     requirements:
       host:
         - pip
-        # Use an exact pin for the build environment
-        - python {{ python_min }}
         - setuptools
+        - python >=3.10
       run:
         - loguru
         - matplotlib-base >=3.7
         - numpy
         - pandas >=2.1
         - pyarrow
-        - pymbar-core >=4
-        # Use a lower-bound for the run environment
-        - python >={{ python_min }}
+        - pymbar-core >=4  # Core dependency
+        - python >=3.10
         - scikit-learn
         - scipy
+
+    # The test for the core package can just be the import.
     test:
       imports:
         - alchemlyb
 
   - name: {{ name }}
+    # This is a metapackage. It has no build script and contains no files.
+    # Its purpose is to depend on the '-core' package and add the full 'pymbar'.
     build:
       noarch: python
+
     requirements:
-      host:
-        # Use an exact pin for the build environment
-        - python {{ python_min }}
       run:
-        - {{ pin_subpackage("alchemlyb-core", exact=True) }}
-        - pymbar >=4
-        # Use a lower-bound for the run environment
-        - python >={{ python_min }}
+        # This special syntax ensures that installing 'alchemlyb' will pull in the
+        # 'alchemlyb-core' package that was built at the exact same time.
+        - {{ pin_subpackage('alchemlyb-core', exact=True) }}
+        - pymbar >=4  # The full pymbar dependency is added here.
+        - python >=3.10
+
+    # The test for this metapackage ensures that after installation,
+    # the environment is consistent.
     test:
-      requires:
-        - pip
-        # Use an exact pin for the test environment
-        - python {{ python_min }}
       imports:
         - alchemlyb
       commands:
         - pip check
+      requires:
+        - pip
 
+# The 'about' and 'extra' sections are common to all packages built from this recipe.
 about:
   home: https://github.com/alchemistry/alchemlyb
   summary: the simple alchemistry library
