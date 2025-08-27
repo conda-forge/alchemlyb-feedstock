@@ -13,7 +13,6 @@ source:
   sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
 build:
-  noarch: python
   string: >-
     core_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'core']
     jax_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'jax']
