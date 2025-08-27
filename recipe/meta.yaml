@@ -22,7 +22,7 @@ requirements:
   host:
     - pip
     - setuptools
-    - python >=3.11
+    - python
   run:
     - loguru
     - matplotlib-base >=3.7
@@ -31,7 +31,7 @@ requirements:
     - pyarrow
     - pymbar >=4  # [accelerator == 'jax']
     - pymbar-core >=4  # [accelerator == 'core']
-    - python >=3.11
+    - python
     - scikit-learn
     - scipy
 
