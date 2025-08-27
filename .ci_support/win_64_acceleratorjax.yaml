@@ -1,0 +1,10 @@
+accelerator:
+- jax
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+python_min:
+- '3.10'
+target_platform:
+- win-64

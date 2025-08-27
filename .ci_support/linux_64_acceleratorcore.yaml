@@ -1,3 +1,5 @@
+accelerator:
+- core
 cdt_name:
 - conda
 channel_sources:
@@ -7,4 +9,6 @@ channel_targets:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 python_min:
-- '3.9'
+- '3.10'
+target_platform:
+- linux-64
