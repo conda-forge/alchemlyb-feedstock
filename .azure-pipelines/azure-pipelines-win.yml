@@ -8,11 +8,29 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_acceleratorcore:
-        CONFIG: win_64_acceleratorcore
+      win_64_acceleratorcorepython3.10.____cpython:
+        CONFIG: win_64_acceleratorcorepython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_acceleratorjax:
-        CONFIG: win_64_acceleratorjax
+      win_64_acceleratorcorepython3.11.____cpython:
+        CONFIG: win_64_acceleratorcorepython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_acceleratorcorepython3.12.____cpython:
+        CONFIG: win_64_acceleratorcorepython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_acceleratorcorepython3.13.____cp313:
+        CONFIG: win_64_acceleratorcorepython3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+      win_64_acceleratorjaxpython3.10.____cpython:
+        CONFIG: win_64_acceleratorjaxpython3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_acceleratorjaxpython3.11.____cpython:
+        CONFIG: win_64_acceleratorjaxpython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_acceleratorjaxpython3.12.____cpython:
+        CONFIG: win_64_acceleratorjaxpython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_acceleratorjaxpython3.13.____cp313:
+        CONFIG: win_64_acceleratorjaxpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
