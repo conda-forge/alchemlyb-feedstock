@@ -14,7 +14,6 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
   number: 1
 
 test:
@@ -28,6 +27,7 @@ test:
 
 outputs:
   - name: {{ name }}-core
+    script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
