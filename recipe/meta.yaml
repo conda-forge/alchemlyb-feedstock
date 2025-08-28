@@ -1,8 +1,7 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.4.1" %}
-# set minimal Python version from 
-# https://github.com/alchemistry/alchemlyb/blob/master/pyproject.toml#L42
-{% set python_min = "3.10" %}
+{% set build = 2 %}
+{% set build = build + 100 %}  # [accelerator == 'jax']
 
 package:
   name: {{ name|lower }}
@@ -13,23 +12,26 @@ source:
   sha256: d360fca39d0e6a9d85744413be4b1794dfd448c5558a145e975f71ce7a8da48b
 
 build:
-  noarch: python
+  string: >-
+    core_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'core']
+    jax_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'jax']
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: {{ build }}
 
 requirements:
   host:
     - pip
     - setuptools
-    - python {{ python_min }}
+    - python
   run:
     - loguru
     - matplotlib-base >=3.7
     - numpy
     - pandas >=2.1
     - pyarrow
-    - pymbar >=4
-    - python >={{ python_min }}
+    - pymbar >=4  # [accelerator == 'jax']
+    - pymbar-core >=4  # [accelerator == 'core']
+    - python
     - scikit-learn
     - scipy
 
@@ -40,7 +42,7 @@ test:
     - pip check
   requires:
     - pip
-    - python {{ python_min }}
+    - python
 
 about:
   home: https://github.com/alchemistry/alchemlyb
