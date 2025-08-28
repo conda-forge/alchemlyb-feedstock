@@ -17,22 +17,6 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 1
 
-requirements:
-  host:
-    - pip
-    - setuptools
-    - python {{ python_min }}
-  run:
-    - loguru
-    - matplotlib-base >=3.7
-    - numpy
-    - pandas >=2.1
-    - pyarrow
-    - pymbar >=4
-    - python >={{ python_min }}
-    - scikit-learn
-    - scipy
-
 test:
   imports:
     - alchemlyb
@@ -41,6 +25,32 @@ test:
   requires:
     - pip
     - python {{ python_min }}
+
+outputs:
+  - name: {{ name }}-core
+    requirements:
+      host:
+        - pip
+        - setuptools
+        - python {{ python_min }}
+      run:
+        - loguru
+        - matplotlib-base >=3.7
+        - numpy
+        - pandas >=2.1
+        - pyarrow
+        - pymbar-core >=4
+        - python >={{ python_min }}
+        - scikit-learn
+        - scipy
+
+  - name: {{ name }}
+    requirements:
+      host:
+        - python
+      run: 
+        - {{ pin_subpackage('alchemlyb-core', exact=True) }}
+        - pymbar >=4
 
 about:
   home: https://github.com/alchemistry/alchemlyb
