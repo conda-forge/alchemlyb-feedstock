@@ -1,6 +1,6 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.4.1" %}
-{% set build = 2 %}
+{% set build = 3 %}
 {% set build = build + 100 %}  # [accelerator == 'jax']
 
 package:
