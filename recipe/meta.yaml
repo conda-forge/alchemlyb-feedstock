@@ -12,7 +12,7 @@ source:
   sha256: df5bd0b41f6e8e3a7b03d11fb8c9a8be7a2df07a16931201a504899ae892907f
 
 build:
-  noarch: python
+  skip: true  # [py<311]
   string: >-
     core_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'core'] jax_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'jax']
   script: {{ PYTHON }} -m pip install . -vv
@@ -22,7 +22,7 @@ requirements:
   host:
     - pip
     - setuptools
-    - python {{ python_min }}.*
+    - python
   run:
     - loguru
     - matplotlib-base >=3.7
@@ -31,7 +31,7 @@ requirements:
     - pyarrow
     - pymbar >=4  # [accelerator == 'jax']
     - pymbar-core >=4  # [accelerator == 'core']
-    - python >={{ python_min }}
+    - python
     - scikit-learn
     - scipy
 
@@ -42,7 +42,7 @@ test:
     - pip check
   requires:
     - pip
-    - python {{ python_min }}
+    - python
 
 about:
   home: https://github.com/alchemistry/alchemlyb
