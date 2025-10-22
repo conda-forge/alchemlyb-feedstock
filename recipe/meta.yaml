@@ -14,7 +14,8 @@ source:
 build:
   skip: true  # [py<311]
   string: >-
-    core_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'core'] jax_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'jax']
+    core_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'core']
+    jax_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [accelerator == 'jax']  
   script: {{ PYTHON }} -m pip install . -vv
   number: {{ build }}
 
