@@ -5,7 +5,7 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-13
+    vmImage: macOS-15
   strategy:
     matrix:
       osx_64_acceleratorcorepython3.10.____cpython:
@@ -20,6 +20,9 @@ jobs:
       osx_64_acceleratorcorepython3.13.____cp313:
         CONFIG: osx_64_acceleratorcorepython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
+      osx_64_acceleratorcorepython3.14.____cp314:
+        CONFIG: osx_64_acceleratorcorepython3.14.____cp314
+        UPLOAD_PACKAGES: 'True'
       osx_64_acceleratorjaxpython3.10.____cpython:
         CONFIG: osx_64_acceleratorjaxpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -31,6 +34,9 @@ jobs:
         UPLOAD_PACKAGES: 'True'
       osx_64_acceleratorjaxpython3.13.____cp313:
         CONFIG: osx_64_acceleratorjaxpython3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+      osx_64_acceleratorjaxpython3.14.____cp314:
+        CONFIG: osx_64_acceleratorjaxpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables: {}
