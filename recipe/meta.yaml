@@ -1,6 +1,6 @@
 {% set name = "alchemlyb" %}
 {% set version = "2.5.0" %}
-{% set build = 1 %}
+{% set build = 2 %}
 {% set build = build + 100 %}  # [accelerator == 'jax']
 
 package:
@@ -8,7 +8,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/alchemlyb-{{ version }}.tar.gz
   sha256: df5bd0b41f6e8e3a7b03d11fb8c9a8be7a2df07a16931201a504899ae892907f
 
 build:
